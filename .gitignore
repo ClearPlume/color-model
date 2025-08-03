@@ -1,0 +1,32 @@
+# === IntelliJ / JetBrains 系 IDE 配置 ===
+.idea/caches/
+.idea/codeStyles/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/deploymentTargetSelector.xml
+.idea/deviceManager.xml
+.idea/AndroidProjectSystem.xml
+.idea/runConfigurations.xml
+.idea/shelf/
+.idea/dictionaries/
+
+# === 可共享配置（建议保留，需手动添加）===
+# Keep: .idea/modules.xml
+# Keep: .idea/*.iml
+# Keep: .idea/vcs.xml
+# Keep: .idea/inspectionProfiles/
+# Keep: .editorconfig
+
+# === 系统杂项 ===
+.gradle/
+build/
+.cxx/
+.externalNativeBuild/
+captures/
+local.properties
+.kotlin/
+
+.DS_Store
+Thumbs.db
+.vscode/
