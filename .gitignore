@@ -30,3 +30,8 @@ local.properties
 .DS_Store
 Thumbs.db
 .vscode/
+
+# 模型训练产物
+*.pt
+*.model
+*.vocab

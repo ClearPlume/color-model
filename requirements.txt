@@ -1,3 +1,8 @@
 numpy==2.2.6
 matplotlib==3.10.5
 scikit-learn==1.7.1
+colormath==3.0.0
+sentencepiece==0.2.0
+torch==2.7.1
+pandas==2.3.1
+pandas-stubs==2.3.0.250703
