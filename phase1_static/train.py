@@ -162,8 +162,7 @@ class ColorSemanticMapper:
         HEX: {_hex}
         HSV: {hsv[0]}, {hsv[1]}, {hsv[2]}
         HSL: {hsl[0]}, {hsl[1]}, {hsl[2]}
-        LAB: {lab_int[0]}, {lab_int[1]}, {lab_int[2]}\
-        """)
+        LAB: {lab_int[0]}, {lab_int[1]}, {lab_int[2]}""")
 
 
 def predict(word: str, sp: SentencePieceProcessor, model: ColorMLP) -> tuple[float, float, float]:
