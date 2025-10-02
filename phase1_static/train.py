@@ -175,7 +175,7 @@ def predict(word: str, sp: SentencePieceProcessor, model: ColorMLP) -> tuple[flo
 def model_pca():
     matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
 
-    color = ColorSemanticMapper()
+    color_semantic = ColorSemanticMapper()
 
     sp = SentencePieceProcessor()
     sp.Load(SENTENCEPIECE_MODEL_PATH)
@@ -192,7 +192,7 @@ def model_pca():
     # ✅ 获取所有颜色词的预测值
     predicted_lab = []
     for word in color_names:
-        lab, _, _, _, _, _ = color(word)
+        lab, _, _, _, _, _ = color_semantic(word)
         predicted_lab.append(lab)
 
     # ✅ PCA 投影
