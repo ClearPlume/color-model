@@ -10,6 +10,9 @@
 .idea/runConfigurations.xml
 .idea/shelf/
 .idea/dictionaries/
+.idea/modules.xml
+.idea/AICommit.xml
+*.iml
 
 # === 可共享配置（建议保留，需手动添加）===
 # Keep: .idea/modules.xml
