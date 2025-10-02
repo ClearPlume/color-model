@@ -173,7 +173,7 @@ def predict(word: str, sp: SentencePieceProcessor, model: ColorMLP) -> tuple[flo
 
 
 def model_pca():
-    matplotlib.rcParams['font.family'] = 'Noto Sans CJK JP'
+    matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
 
     color_semantic = ColorSemanticMapper()
 
