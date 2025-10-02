@@ -145,16 +145,20 @@ class ColorSemanticMapper:
         self.model.load_state_dict(torch.load('color_model.pt'))
         self.model.eval()
 
-    def __call__(self, word: str) -> str:
+    def __call__(self, word: str) -> tuple[float, float, float]:
         """
         依据颜色名称预测颜色值
         :param word: 颜色名称
-        :return: 元组，[rgb, hex, hsv, hsl, lab]
+        :return: 元组，lab坐标
         """
         tokens = torch.tensor(self.sp.Encode(word, out_type=int)).unsqueeze(0).to(DEVICE)
         with torch.no_grad():
-            lab = self.model(tokens).squeeze().cpu().numpy()
-        rgb, _hex, hsv, hsl, lab_int = lab_to_all(*lab)
+            l, a, b = self.model(tokens).squeeze().cpu().numpy()
+        return l, a, b
+
+    def format(self, word: str) -> str:
+        l, a, b = self(word)
+        rgb, _hex, hsv, hsl, lab_int = lab_to_all(l, a, b)
         return textwrap.dedent(f"""\
         颜色: {word}
         --------------------
@@ -192,7 +196,7 @@ def model_pca():
     # ✅ 获取所有颜色词的预测值
     predicted_lab = []
     for word in color_names:
-        lab, _, _, _, _, _ = color_semantic(word)
+        lab = color_semantic(word)
         predicted_lab.append(lab)
 
     # ✅ PCA 投影
@@ -216,4 +220,4 @@ if __name__ == '__main__':
     # train()
     # model_pca()
     color_mapper = ColorSemanticMapper()
-    print(color_mapper('红'))
+    print(color_mapper.format('红'))
